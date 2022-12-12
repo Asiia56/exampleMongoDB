@@ -1,0 +1,16 @@
+
+<div class="crane" *ngIf="(crane$ | async) as crane">
+  <h2> {{crane.name}} works!</h2>
+  <p> {{crane?.description }} </p>
+
+  <div class="content">
+  <img class="crane-thumbnail mat-elevation-z8" [src]="crane.iconUrl" />
+    <div class="crane-details">
+        <p>Load capacity: {{ crane.loadCapacity }}</p>
+        <p>Telescopic boom: {{ crane.telescopicBoom }}</p>
+        <p>Max height: {{ crane.maxHeight }}</p>
+        <p>Max radius: {{ crane.maxRadius }}</p>
+        <p>Axles: {{ crane.axles }} </p>
+    </div>
+</div>
+</div>

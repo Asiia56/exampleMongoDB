@@ -1,0 +1,79 @@
+<h2 mat-dialog-title>{{dialogTitle}}</h2>
+<mat-dialog-content>
+
+  <ng-container *ngIf="form">
+    <div class="spinner-container" *ngIf="loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <form [formGroup]="form" class="form modal-panel">
+
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput required formControlName="name" class="form-control" placeholder="LTM 1030-2.1" type="text" />
+      </mat-form-field>
+
+      <div *ngIf="mode == 'create'">
+        <mat-form-field>
+          <mat-label>Category of crane</mat-label>
+          <mat-select placeholder="Select category" formControlName="category">
+            <mat-option value="WHEEL_CRANE"> Wheel crane</mat-option>
+            <mat-option value="CRAWLER_CRANE">Crawler crane</mat-option>
+          </mat-select>
+        </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Course Seq No" formControlName="seqNo" type="number">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Set url to view details</mat-label>
+            <input matInput required formControlName="url" class="form-control"
+              placeholder="ltm_1030_2_1"
+              type="text" />
+          </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label>Image URL</mat-label>
+        <input matInput required formControlName="iconUrl" class="form-control"
+          placeholder="https://specs.lectura.de/models/renamed/orig/at-krane-ltm-1030-2-1--liebherr(4).jpg"
+          type="text" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Short Desription</mat-label>
+        <input matInput required formControlName="description" class="form-control"
+          placeholder="This is an extremely good crane" type="text" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Load capacity</mat-label>
+        <input matInput required formControlName="loadCapacity" class="form-control" placeholder="35" type="number" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Telescopic boom</mat-label>
+        <input matInput required formControlName="telescopicBoom" class="form-control" placeholder="30" type="number" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Max height</mat-label>
+        <input matInput required formControlName="maxHeight" class="form-control" placeholder="44" type="number" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Max radius</mat-label>
+        <input matInput required formControlName="maxRadius" class="form-control" placeholder="30" type="number" />
+      </mat-form-field>
+
+      <mat-radio-group *ngIf="mode == 'create'" aria-label="Select an axles" required formControlName="axles" class="form-control card-radio">
+        <mat-label>Axles</mat-label>
+        <mat-radio-button value="2" class="radio-button-value">2</mat-radio-button>
+        <mat-radio-button value="3" class="radio-button-value">3</mat-radio-button>
+        <mat-radio-button value="4" class="radio-button-value">4</mat-radio-button>
+      </mat-radio-group>
+    </form>
+
+
+  </ng-container>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="onClose()"> Close </button>
+  <button mat-raised-button color="primary" (click)="onSave()"> Save </button>
+  <!--[disabled]="!form?.valid || (this.loading$ | async)"-->
+</mat-dialog-actions>

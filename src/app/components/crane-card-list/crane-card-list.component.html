@@ -1,0 +1,26 @@
+<mat-card *ngFor="let crane of cranes" class="crane-card mat-elevation-z10">
+
+  <mat-card-header>
+    <mat-card-title>{{crane.name}}</mat-card-title>
+  </mat-card-header>
+
+  <img mat-card-image [src]="crane.iconUrl">
+
+  <mat-card-content>
+    <p>{{crane.description}}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="crane-actions">
+    <button mat-raised-button color="primary" [routerLink]="['/cranes', crane.url]"> VIEW </button>
+
+    <button mat-mini-fab color="primary">
+      <mat-icon class="add-crane-btn" (click)="editCrane(crane)">edit</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="basic">
+      <mat-icon class="add-crane-btn" (click)="onDeleteCrane(crane)">delete</mat-icon>
+    </button>
+
+  </mat-card-actions>
+
+</mat-card>
