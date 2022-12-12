@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
-This project was created to pratice with NestJs In Practice (with MongoDB). 
+This project was created to practice with NestJs (with MongoDB). 
 This project is simple CRUD application. Also, it has login page and implements authentification logic.
 To create communication between rest-api and Angular HttpClient from Angular side was used.  
 
